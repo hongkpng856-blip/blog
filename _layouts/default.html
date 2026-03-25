@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="{{ '/assets/css/main.css' | relative_url }}" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- 網站圖標 -->
+  <link rel="shortcut icon" href="{{ '/assets/images/favicon.png' | relative_url }}">
+</head>
+<body class="d-flex flex-column min-vh-100">
+  <!-- 頂部導航 -->
+  <header class="header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="{{ '/' | relative_url }}">首頁</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                分類
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{{ '/categories/技術/' | relative_url }}">技術</a></li>
+                <li><a class="dropdown-item" href="{{ '/categories/投資/' | relative_url }}">投資</a></li>
+                <li><a class="dropdown-item" href="{{ '/categories/生活/' | relative_url }}">生活</a></li>
+                <li><a class="dropdown-item" href="{{ '/categories/健康/' | relative_url }}">健康</a></li>
+                <li><a class="dropdown-item" href="{{ '/categories/學習/' | relative_url }}">學習</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ '/about/' | relative_url }}">關於我</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ '/contact/' | relative_url }}">聯絡方式</a>
+            </li>
+          </ul>
+          <form class="d-flex ms-3" action="{{ '/search/' | relative_url }}" method="get">
+            <input class="form-control me-2" type="search" placeholder="搜尋..." name="q">
+            <button class="btn btn-outline-primary" type="submit"><i class="fas fa-search"></i></button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- 主要內容區域 -->
+  <main class="flex-shrink-0 my-4">
+    {{ content }}
+  </main>
+
+  <!-- 頁腳 -->
+  <footer class="footer mt-auto py-4 bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <h5 class="mb-3">{{ site.title }}</h5>
+          <p class="text-muted">{{ site.description }}</p>
+        </div>
+        <div class="col-md-4">
+          <h5 class="mb-3">熱門分類</h5>
+          <ul class="list-unstyled">
+            <li><a href="{{ '/categories/技術/' | relative_url }}" class="text-decoration-none">技術</a></li>
+            <li><a href="{{ '/categories/投資/' | relative_url }}" class="text-decoration-none">投資</a></li>
+            <li><a href="{{ '/categories/生活/' | relative_url }}" class="text-decoration-none">生活</a></li>
+            <li><a href="{{ '/categories/健康/' | relative_url }}" class="text-decoration-none">健康</a></li>
+            <li><a href="{{ '/categories/學習/' | relative_url }}" class="text-decoration-none">學習</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5 class="mb-3">快速連結</h5>
+          <ul class="list-unstyled">
+            <li><a href="{{ '/' | relative_url }}" class="text-decoration-none">首頁</a></li>
+            <li><a href="{{ '/about/' | relative_url }}" class="text-decoration-none">關於我</a></li>
+            <li><a href="{{ '/contact/' | relative_url }}" class="text-decoration-none">聯絡方式</a></li>
+            <li><a href="{{ '/privacy/' | relative_url }}" class="text-decoration-none">隱私政策</a></li>
+            <li><a href="{{ '/terms/' | relative_url }}" class="text-decoration-none">使用條款</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+      <div class="text-center">
+        <p class="mb-0">© {{ 'now' | date: "%Y" }} {{ site.title }}。保留所有權利。</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript 資源 -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

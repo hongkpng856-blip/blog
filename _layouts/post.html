@@ -1,0 +1,204 @@
+---
+layout: default
+---
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8">
+      <!-- 麵包屑導航 -->
+      <nav aria-label="breadcrumb" class="mb-4">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{ '/' | relative_url }}">首頁</a></li>
+          {% if page.categories.size > 0 %}
+          <li class="breadcrumb-item">
+            <a href="{{ '/categories/' | append: page.categories.first | relative_url }}">{{ page.categories.first }}</a>
+          </li>
+          {% endif %}
+          <li class="breadcrumb-item active" aria-current="page">{{ page.title }}</li>
+        </ol>
+      </nav>
+
+      <article class="card mb-4">
+        <div class="card-body">
+          <h1 class="mb-3">{{ page.title }}</h1>
+          <div class="post-meta d-flex align-items-center mb-4">
+            <img src="{{ '/assets/images/avatar.jpg' | relative_url }}" alt="作者頭像" class="rounded-circle me-2" width="40">
+            <div>
+              <div class="fw-bold">作者名稱</div>
+              <div class="text-muted small">
+                <span><i class="far fa-calendar-alt"></i> {{ page.date | date: "%Y-%m-%d" }}</span>
+                {% if page.categories.size > 0 %}
+                <span class="ms-3"><i class="far fa-folder"></i> {{ page.categories.first }}</span>
+                {% endif %}
+                {% if page.comments_count %}
+                <span class="ms-3"><i class="far fa-comment"></i> {{ page.comments_count }}</span>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+
+          <!-- 文章特色圖片 -->
+          {% if page.image %}
+          <img src="{{ page.image | relative_url }}" alt="{{ page.title }}" class="img-fluid rounded mb-4">
+          {% endif %}
+
+          <!-- 文章內容 -->
+          <div class="article-content">
+            {{ content }}
+          </div>
+
+          <!-- 文章標籤 -->
+          {% if page.tags.size > 0 %}
+          <div class="mt-4">
+            <div class="tags">
+              <i class="fas fa-tags me-2"></i>
+              {% for tag in page.tags %}
+              <a href="{{ '/tags/' | append: tag | relative_url }}" class="tag-item">{{ tag }}</a>
+              {% endfor %}
+            </div>
+          </div>
+          {% endif %}
+
+          <!-- 分享按鈕 -->
+          <div class="share-buttons mt-4">
+            <div class="mb-2">分享此文章:</div>
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | absolute_url }}" target="_blank" class="btn btn-sm btn-facebook">
+              <i class="fab fa-facebook-f"></i> Facebook
+            </a>
+            <a href="https://twitter.com/intent/tweet?url={{ page.url | absolute_url }}&text={{ page.title }}" target="_blank" class="btn btn-sm btn-twitter">
+              <i class="fab fa-twitter"></i> Twitter
+            </a>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ page.url | absolute_url }}&title={{ page.title }}" target="_blank" class="btn btn-sm btn-linkedin">
+              <i class="fab fa-linkedin-in"></i> LinkedIn
+            </a>
+            <a href="https://pinterest.com/pin/create/button/?url={{ page.url | absolute_url }}&media={{ page.image | absolute_url }}&description={{ page.title }}" target="_blank" class="btn btn-sm btn-pinterest">
+              <i class="fab fa-pinterest-p"></i> Pinterest
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 作者區塊 -->
+      <div class="card mb-4">
+        <div class="card-body">
+          <div class="d-flex">
+            <img src="{{ '/assets/images/avatar.jpg' | relative_url }}" alt="作者頭像" class="rounded-circle me-3" width="80">
+            <div>
+              <h5 class="mb-1">作者名稱</h5>
+              <p>熱愛科技、投資和生活品質的提升。在這裡分享我的經驗和見解，希望對你有所幫助。</p>
+              <div class="author-social">
+                <a href="#" class="text-decoration-none me-2"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="text-decoration-none me-2"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-decoration-none me-2"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-decoration-none me-2"><i class="fab fa-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 相關文章 -->
+      <div class="card mb-4">
+        <div class="card-header">
+          <h5 class="mb-0">相關文章</h5>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            {% for post in site.related_posts limit:3 %}
+            <div class="col-md-4">
+              <div class="card border-0">
+                {% if post.image %}
+                <img src="{{ post.image | relative_url }}" class="card-img-top mb-2" alt="{{ post.title }}">
+                {% else %}
+                <img src="{{ '/assets/images/default-post.jpg' | relative_url }}" class="card-img-top mb-2" alt="{{ post.title }}">
+                {% endif %}
+                <div class="card-body p-0">
+                  <h6 class="card-title">
+                    <a href="{{ post.url | relative_url }}" class="text-decoration-none">{{ post.title }}</a>
+                  </h6>
+                  <p class="text-muted small">{{ post.date | date: "%Y-%m-%d" }}</p>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+      <!-- 評論區 -->
+      <div class="card mb-4">
+        <div class="card-header">
+          <h5 class="mb-0">評論</h5>
+        </div>
+        <div class="card-body">
+          <div id="disqus_thread">
+            <!-- 這裡放置您的 Disqus 或其他評論系統代碼 -->
+            <div class="text-center py-5">
+              <p>評論功能正在載入中...</p>
+              <button class="btn btn-primary">載入評論</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 側邊欄 -->
+    <div class="col-lg-4">
+      <!-- 關於我 -->
+      <div class="card mb-4 shadow-sm">
+        <div class="card-body text-center">
+          <img src="{{ '/assets/images/avatar.jpg' | relative_url }}" alt="作者頭像" class="rounded-circle mb-3" width="100">
+          <h4>關於我</h4>
+          <p>熱愛科技、投資和生活品質的提升。</p>
+          <a href="{{ '/about/' | relative_url }}" class="btn btn-outline-primary btn-sm">了解更多</a>
+        </div>
+      </div>
+
+      <!-- 側邊欄廣告 -->
+      <div class="card mb-4 text-center shadow-sm">
+        <div class="card-body">
+          <p class="text-muted small">廣告</p>
+          <!-- 廣告代碼 -->
+          <div class="ad-content">
+            <div class="text-center py-5 bg-light">側邊欄廣告位置</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 熱門文章 -->
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header bg-primary text-white">
+          <i class="fas fa-fire me-2"></i>熱門文章
+        </div>
+        <div class="card-body">
+          <ul class="list-group list-group-flush">
+            {% for post in site.posts limit:5 %}
+            <li class="list-group-item border-0 px-0">
+              <a href="{{ post.url | relative_url }}" class="text-decoration-none d-flex align-items-center">
+                <div class="popular-count me-3">{{ forloop.index }}</div>
+                <div>{{ post.title }}</div>
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+
+      <!-- 訂閱區塊 -->
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header bg-primary text-white">
+          <i class="far fa-envelope me-2"></i>訂閱最新文章
+        </div>
+        <div class="card-body">
+          <p>輸入您的電子郵件，獲取最新文章和更新。</p>
+          <form>
+            <div class="mb-3">
+              <input type="email" class="form-control" placeholder="您的電子郵件">
+            </div>
+            <button type="submit" class="btn btn-primary w-100">訂閱</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

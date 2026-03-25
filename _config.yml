@@ -1,0 +1,41 @@
+# 網站基本設定
+title: 我的部落格
+description: 分享知識與見解的個人空間
+baseurl: "/blog"
+url: "https://hongkpng855-lang.github.io"
+
+# 作者信息
+author:
+  name: 您的名字
+  email: your-email@example.com
+
+# SEO 設定
+twitter:
+  username: yourtwitterhandle
+  card: summary_large_image
+
+# 分析與追蹤
+google_analytics: UA-XXXXXXXX-X
+disqus:
+  shortname: your-disqus-shortname
+
+# 建構設定
+markdown: kramdown
+permalink: /:categories/:year/:month/:day/:title/
+paginate: 6
+paginate_path: "/page/:num/"
+
+# 插件
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-feed
+
+# 排除文件
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .gitignore

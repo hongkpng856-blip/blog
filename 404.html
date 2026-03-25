@@ -1,0 +1,18 @@
+# 確保這些設置正確
+title: 我的部落格
+description: 分享知識與見解的個人空間
+baseurl: "/blog"  # 確認這個與您的實際子目錄名稱相符
+url: "https://hongkpng855-lang.github.io"
+
+# 建構設定
+markdown: kramdown
+permalink: /:categories/:year/:month/:day/:title/
+
+# 插件 - 確保jekyll-paginate已安裝
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+
+# 分頁設置
+paginate: 5
+paginate_path: "/page/:num/"
