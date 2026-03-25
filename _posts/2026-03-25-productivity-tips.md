@@ -4,7 +4,7 @@ title: "提升工作效率的五個實用技巧"
 date: 2026-03-25 10:00:00 +0800
 categories: 生活
 tags: [效率, 時間管理, 生產力]
-image: /assets/images/posts/tech.svg
+featured_image: /assets/images/featured/提升工作效率的五個實用技巧.svg
 ---
 
 在現代快節奏的生活中，如何有效管理時間、提升工作效率成為了每個人都關心的議題。本文將分享五個經過實證的實用技巧，幫助你在工作和生活中取得更好的平衡。

@@ -5,7 +5,7 @@ date: 2026-03-26
 author: "Admin"
 categories: [健康]
 tags: [健康, 習慣, 生活, 運動]
-featured_image: /assets/images/featured/healthy-habits.svg
+featured_image: /assets/images/featured/建立健康生活的五個簡單習慣.svg
 description: "五個簡單易行的健康習慣，讓你輕鬆改善生活品質"
 ---
 

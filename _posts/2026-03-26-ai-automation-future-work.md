@@ -4,7 +4,7 @@ title: "AI 自動化如何改變未來工作模式"
 date: 2026-03-26
 categories: [技術]
 tags: [AI, 自動化, 未來工作, 效率]
-featured_image: /assets/images/featured/ai-automation.svg
+featured_image: /assets/images/featured/ai-自動化如何改變未來工作模式.svg
 ---
 
 ## 前言
