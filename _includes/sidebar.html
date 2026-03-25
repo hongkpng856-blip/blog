@@ -1,11 +1,17 @@
+<!-- 搜索框 -->
+{% include search.html %}
+
 <!-- 關於我 -->
 <div class="card mb-4">
   <div class="card-header">關於我</div>
-  <div class="card-body">
+  <div class="card-body text-center">
+    <img src="{{ '/assets/images/avatar.svg' | relative_url }}" alt="作者頭像" class="rounded-circle mb-3" width="80">
     <p>熱愛科技、投資和生活品質的提升。</p>
     <a href="{{ '/about/' | relative_url }}" class="btn btn-primary btn-sm">了解更多</a>
   </div>
 </div>
+
+{% include social-follow.html %}
 
 <!-- 廣告 -->
 <div class="card mb-4">

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400">
+  <defs>
+    <linearGradient id="healthGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a237e"/>
+      <stop offset="100%" style="stop-color:#3949ab"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#healthGrad)"/>
+  <circle cx="200" cy="200" r="80" fill="none" stroke="#f5f5f5" stroke-width="3"/>
+  <path d="M200 140 L200 260 M140 200 L260 200" stroke="#f5f5f5" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="500" cy="200" r="60" fill="none" stroke="#4caf50" stroke-width="3"/>
+  <path d="M470 200 L490 220 L530 180" stroke="#4caf50" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="650" cy="200" r="50" fill="none" stroke="#f5f5f5" stroke-width="3" opacity="0.5"/>
+  <text x="400" y="350" text-anchor="middle" fill="#f5f5f5" font-size="28" font-weight="bold">健康生活</text>
+  <text x="400" y="385" text-anchor="middle" fill="#f5f5f5" font-size="14">Health Posts</text>
+</svg>

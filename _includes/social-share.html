@@ -1,0 +1,64 @@
+<!-- 社交媒體分享按鈕 -->
+<div class="social-share my-4">
+  <span class="me-2">分享到：</span>
+  <a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | absolute_url }}" 
+     class="btn btn-social facebook text-white" 
+     target="_blank" 
+     rel="noopener noreferrer"
+     title="分享到 Facebook">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+      <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+    </svg>
+  </a>
+  <a href="https://twitter.com/intent/tweet?url={{ page.url | absolute_url }}&text={{ page.title | url_encode }}" 
+     class="btn btn-social twitter text-white" 
+     target="_blank" 
+     rel="noopener noreferrer"
+     title="分享到 Twitter">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+      <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+    </svg>
+  </a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ page.url | absolute_url }}&title={{ page.title | url_encode }}" 
+     class="btn btn-social linkedin text-white" 
+     target="_blank" 
+     rel="noopener noreferrer"
+     title="分享到 LinkedIn">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+      <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+    </svg>
+  </a>
+  <a href="https://social-plugins.line.me/lineit/share?url={{ page.url | absolute_url }}" 
+     class="btn btn-social line text-white" 
+     target="_blank" 
+     rel="noopener noreferrer"
+     title="分享到 LINE">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+      <path d="M8 0C3.58 0 0 3.132 0 6.995c0 3.097 2.485 5.718 5.833 6.495.21.04.288-.092.288-.204 0-.1-.004-.416-.004-.758-2.378.444-2.886-.582-2.886-.582-.39-.944-.951-1.196-.951-1.196-.777-.532.059-.522.059-.522.858.062 1.311.89 1.311.89.764 1.341 2.003.953 2.489.729.077-.556.299-.953.544-1.172-1.903-.217-3.903-.964-3.903-4.292 0-.948.332-1.722.876-2.33-.088-.217-.38-1.104.083-2.302 0 0 .714-.231 2.338.889.678-.192 1.404-.288 2.125-.292.721.004 1.447.1 2.125.292 1.624-1.12 2.337-.889 2.337-.889.464 1.198.173 2.085.085 2.302.544.608.875 1.382.875 2.33 0 3.339-2.003 4.072-3.912 4.288.307.268.58.796.58 1.607 0 1.16-.011 2.094-.011 2.379 0 .113.078.247.293.205C13.516 12.711 16 10.09 16 6.995 16 3.132 12.418 0 8 0z"/>
+    </svg>
+  </a>
+  <button class="btn btn-social btn-outline-secondary" 
+          onclick="copyToClipboard('{{ page.url | absolute_url }}')"
+          title="複製連結">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+      <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 8.458a2 2 0 0 1-.836-3.337l1.828-1.829A3 3 0 0 0 4.715 6.542zm7.57 2.916L13.557 8.586a3 3 0 0 0-4.243-4.243L7.486 6.172A3 3 0 0 0 9.414 10.5l.586-.586a1.002 1.002 0 0 0 .154-.199 2 2 0 0 1-.861-3.337l1.828-1.829a2 2 0 0 1 .836 3.337z"/>
+    </svg>
+  </button>
+</div>
+
+<script>
+function copyToClipboard(text) {
+  navigator.clipboard.writeText(text).then(function() {
+    alert('連結已複製到剪貼板！');
+  }, function() {
+    // 備用方案
+    var textArea = document.createElement("textarea");
+    textArea.value = text;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand("Copy");
+    textArea.remove();
+    alert('連結已複製到剪貼板！');
+  });
+}
+</script>

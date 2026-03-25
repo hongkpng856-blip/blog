@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400">
+  <defs>
+    <linearGradient id="investGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a237e"/>
+      <stop offset="100%" style="stop-color:#283593"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#investGrad)"/>
+  <polyline points="100,300 200,250 300,280 400,180 500,200 600,120 700,150" stroke="#4caf50" stroke-width="4" fill="none"/>
+  <polyline points="100,320 200,300 300,310 400,280 500,290 600,250 700,260" stroke="#f5f5f5" stroke-width="2" fill="none" opacity="0.7"/>
+  <circle cx="400" cy="180" r="8" fill="#4caf50"/>
+  <circle cx="600" cy="120" r="8" fill="#4caf50"/>
+  <text x="400" y="350" text-anchor="middle" fill="#f5f5f5" font-size="28" font-weight="bold">投資理財</text>
+  <text x="400" y="385" text-anchor="middle" fill="#f5f5f5" font-size="14">Investment Posts</text>
+  <rect x="50" y="50" width="120" height="60" rx="8" fill="#f5f5f5" opacity="0.9"/>
+  <text x="110" y="85" text-anchor="middle" fill="#1a237e" font-size="16" font-weight="bold">$USD</text>
+</svg>

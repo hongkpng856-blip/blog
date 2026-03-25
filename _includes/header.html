@@ -1,38 +1,51 @@
 <header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-      <a class="navbar-brand" href="{{ '/' | relative_url }}">我的部落格</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="{{ '/' | relative_url }}">首頁</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ '/categories/技術/' | relative_url }}">技術</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ '/categories/投資/' | relative_url }}">投資</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ '/categories/生活/' | relative_url }}">生活</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ '/categories/健康/' | relative_url }}">健康</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ '/categories/學習/' | relative_url }}">學習</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ '/about/' | relative_url }}">關於我</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ '/contact/' | relative_url }}">聯絡方式</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{{ '/' | relative_url }}">
+                <i class="fas fa-blog me-2"></i>我的部落格
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="切換導航">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link {% if page.url == '/' %}active{% endif %}" href="{{ '/' | relative_url }}">
+                            <i class="fas fa-home me-1"></i>首頁
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if page.url contains '技術' %}active{% endif %}" href="{{ '/categories/技術/' | relative_url }}">
+                            <i class="fas fa-code me-1"></i>技術
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if page.url contains '投資' %}active{% endif %}" href="{{ '/categories/投資/' | relative_url }}">
+                            <i class="fas fa-chart-line me-1"></i>投資
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if page.url contains '生活' %}active{% endif %}" href="{{ '/categories/生活/' | relative_url }}">
+                            <i class="fas fa-coffee me-1"></i>生活
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if page.url contains '健康' %}active{% endif %}" href="{{ '/categories/健康/' | relative_url }}">
+                            <i class="fas fa-heart me-1"></i>健康
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if page.url contains '學習' %}active{% endif %}" href="{{ '/categories/學習/' | relative_url }}">
+                            <i class="fas fa-graduation-cap me-1"></i>學習
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if page.url == '/about/' %}active{% endif %}" href="{{ '/about/' | relative_url }}">
+                            <i class="fas fa-user me-1"></i>關於我
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 </header>

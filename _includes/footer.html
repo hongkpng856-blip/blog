@@ -1,35 +1,115 @@
-<footer class="bg-dark text-white py-4 mt-5">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4 mb-3">
-        <h5>我的部落格</h5>
-        <p>分享知識與見解的個人空間</p>
-      </div>
-      <div class="col-md-4 mb-3">
-        <h5>熱門分類</h5>
-        <ul class="list-unstyled">
-          <li><a href="{{ '/categories/技術/' | relative_url }}" class="text-white">技術</a></li>
-          <li><a href="{{ '/categories/投資/' | relative_url }}" class="text-white">投資</a></li>
-          <li><a href="{{ '/categories/生活/' | relative_url }}" class="text-white">生活</a></li>
-          <li><a href="{{ '/categories/健康/' | relative_url }}" class="text-white">健康</a></li>
-          <li><a href="{{ '/categories/學習/' | relative_url }}" class="text-white">學習</a></li>
-        </ul>
-      </div>
-      <div class="col-md-4 mb-3">
-        <h5>快速連結</h5>
-        <ul class="list-unstyled">
-          <li><a href="{{ '/' | relative_url }}" class="text-white">首頁</a></li>
-          <li><a href="{{ '/about/' | relative_url }}" class="text-white">關於我</a></li>
-          <li><a href="{{ '/contact/' | relative_url }}" class="text-white">聯絡方式</a></li>
-          <li><a href="#" class="text-white">隱私政策</a></li>
-          <li><a href="#" class="text-white">使用條款</a></li>
-        </ul>
-      </div>
+<footer class="footer py-4 mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-4 mb-md-0">
+                <h5 class="mb-3">
+                    <i class="fas fa-blog me-2"></i>我的部落格
+                </h5>
+                <p class="mb-3">分享技術、投資、生活與學習的個人空間</p>
+                <div class="social-links">
+                    <a href="#" class="text-white me-3" title="Facebook">
+                        <i class="fab fa-facebook fa-lg"></i>
+                    </a>
+                    <a href="#" class="text-white me-3" title="Twitter">
+                        <i class="fab fa-twitter fa-lg"></i>
+                    </a>
+                    <a href="#" class="text-white me-3" title="Instagram">
+                        <i class="fab fa-instagram fa-lg"></i>
+                    </a>
+                    <a href="#" class="text-white me-3" title="GitHub">
+                        <i class="fab fa-github fa-lg"></i>
+                    </a>
+                    <a href="#" class="text-white" title="LinkedIn">
+                        <i class="fab fa-linkedin fa-lg"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-2 mb-4 mb-md-0">
+                <h5 class="mb-3">熱門分類</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2">
+                        <a href="{{ '/categories/技術/' | relative_url }}" class="text-white text-decoration-none">
+                            <i class="fas fa-code me-2"></i>技術
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="{{ '/categories/投資/' | relative_url }}" class="text-white text-decoration-none">
+                            <i class="fas fa-chart-line me-2"></i>投資
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="{{ '/categories/生活/' | relative_url }}" class="text-white text-decoration-none">
+                            <i class="fas fa-coffee me-2"></i>生活
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="{{ '/categories/健康/' | relative_url }}" class="text-white text-decoration-none">
+                            <i class="fas fa-heart me-2"></i>健康
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ '/categories/學習/' | relative_url }}" class="text-white text-decoration-none">
+                            <i class="fas fa-graduation-cap me-2"></i>學習
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-2 mb-4 mb-md-0">
+                <h5 class="mb-3">快速連結</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2">
+                        <a href="{{ '/' | relative_url }}" class="text-white text-decoration-none">
+                            <i class="fas fa-home me-2"></i>首頁
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="{{ '/about/' | relative_url }}" class="text-white text-decoration-none">
+                            <i class="fas fa-user me-2"></i>關於我
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="{{ '/contact/' | relative_url }}" class="text-white text-decoration-none">
+                            <i class="fas fa-envelope me-2"></i>聯絡方式
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="{{ '/privacy/' | relative_url }}" class="text-white text-decoration-none">
+                            <i class="fas fa-shield-alt me-2"></i>隱私政策
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ '/terms/' | relative_url }}" class="text-white text-decoration-none">
+                            <i class="fas fa-file-contract me-2"></i>使用條款
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h5 class="mb-3">訂閱電子報</h5>
+                <p class="mb-3">接收最新文章通知</p>
+                <form class="d-flex">
+                    <input type="email" class="form-control me-2" placeholder="您的電子郵件" aria-label="電子郵件">
+                    <button class="btn btn-light" type="submit">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <hr class="my-4" style="border-color: rgba(255,255,255,0.2);">
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                <p class="mb-0">
+                    <i class="far fa-copyright me-1"></i>2026 我的部落格。保留所有權利。
+                </p>
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+                <a href="#" class="text-white text-decoration-none me-3">
+                    <i class="fas fa-sitemap me-1"></i>網站地圖
+                </a>
+                <a href="#" class="text-white text-decoration-none">
+                    <i class="fas fa-rss me-1"></i>RSS 訂閱
+                </a>
+            </div>
+        </div>
     </div>
-    <div class="row mt-3">
-      <div class="col text-center">
-        <p>&copy; 2026 我的部落格。保留所有權利。</p>
-      </div>
-    </div>
-  </div>
 </footer>

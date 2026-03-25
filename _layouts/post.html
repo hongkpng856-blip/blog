@@ -22,7 +22,7 @@ layout: default
         <div class="card-body">
           <h1 class="mb-3">{{ page.title }}</h1>
           <div class="post-meta d-flex align-items-center mb-4">
-            <img src="{{ '/assets/images/avatar.jpg' | relative_url }}" alt="作者頭像" class="rounded-circle me-2" width="40">
+            <img src="{{ '/assets/images/avatar.svg' | relative_url }}" alt="作者頭像" class="rounded-circle me-2" width="40">
             <div>
               <div class="fw-bold">作者名稱</div>
               <div class="text-muted small">
@@ -82,7 +82,7 @@ layout: default
       <div class="card mb-4">
         <div class="card-body">
           <div class="d-flex">
-            <img src="{{ '/assets/images/avatar.jpg' | relative_url }}" alt="作者頭像" class="rounded-circle me-3" width="80">
+            <img src="{{ '/assets/images/avatar.svg' | relative_url }}" alt="作者頭像" class="rounded-circle me-3" width="80">
             <div>
               <h5 class="mb-1">作者名稱</h5>
               <p>熱愛科技、投資和生活品質的提升。在這裡分享我的經驗和見解，希望對你有所幫助。</p>
@@ -110,7 +110,7 @@ layout: default
                 {% if post.image %}
                 <img src="{{ post.image | relative_url }}" class="card-img-top mb-2" alt="{{ post.title }}">
                 {% else %}
-                <img src="{{ '/assets/images/default-post.jpg' | relative_url }}" class="card-img-top mb-2" alt="{{ post.title }}">
+                <img src="{{ '/assets/images/default-post.svg' | relative_url }}" class="card-img-top mb-2" alt="{{ post.title }}">
                 {% endif %}
                 <div class="card-body p-0">
                   <h6 class="card-title">
@@ -147,7 +147,7 @@ layout: default
       <!-- 關於我 -->
       <div class="card mb-4 shadow-sm">
         <div class="card-body text-center">
-          <img src="{{ '/assets/images/avatar.jpg' | relative_url }}" alt="作者頭像" class="rounded-circle mb-3" width="100">
+          <img src="{{ '/assets/images/avatar.svg' | relative_url }}" alt="作者頭像" class="rounded-circle mb-3" width="100">
           <h4>關於我</h4>
           <p>熱愛科技、投資和生活品質的提升。</p>
           <a href="{{ '/about/' | relative_url }}" class="btn btn-outline-primary btn-sm">了解更多</a>

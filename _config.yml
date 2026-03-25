@@ -1,41 +1,60 @@
 # 網站基本設定
-title: 我的部落格
-description: 分享知識與見解的個人空間
-baseurl: "/blog"
-url: "https://hongkpng855-lang.github.io"
+title: "Sun ny 的部落格"
+author: "Sun ny"
+email: hongkpng856@gmail.com
+description: "分享科技、投資和生活品質提升的實用技巧"
+baseurl: "" # 如果部署在子路徑，請填寫，如 "/blog"
+url: "https://hongkpng856-blip.github.io" # 網站完整 URL
 
-# 作者信息
-author:
-  name: 您的名字
-  email: your-email@example.com
-
-# SEO 設定
-twitter:
-  username: yourtwitterhandle
-  card: summary_large_image
-
-# 分析與追蹤
-google_analytics: UA-XXXXXXXX-X
-disqus:
-  shortname: your-disqus-shortname
+# 社交媒體
+social:
+  name: Sun ny
+  links:
+    - https://github.com/hongkpng856-blip
+    - https://t.me/Sun123890
 
 # 建構設定
 markdown: kramdown
-permalink: /:categories/:year/:month/:day/:title/
-paginate: 6
-paginate_path: "/page/:num/"
+highlighter: rouge
+permalink: /:year/:month/:day/:title/
 
 # 插件
 plugins:
-  - jekyll-paginate
-  - jekyll-sitemap
-  - jekyll-seo-tag
   - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
 
-# 排除文件
+# 時區
+timezone: Asia/Taipei
+
+# 分頁設定
+paginate: 5
+paginate_path: "/page:num/"
+
+# 排除檔案
 exclude:
-  - Gemfile
-  - Gemfile.lock
-  - node_modules
-  - vendor
-  - .gitignore
+  - backup/
+  - "*.sh"
+  - "*.bak"
+  - README.md
+  - LICENSE
+
+# 文章設定
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Sun ny"
+      image: /assets/images/default-post.svg
+
+# SEO 設定
+lang: zh-TW
+locale: zh_TW
+
+# 顏色設定
+colors:
+  primary: "#1a237e"
+  secondary: "#f5f5f5"
+  accent: "#3949ab"

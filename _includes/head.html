@@ -1,14 +1,91 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{% raw %}{% if page.title %}{{ page.title }} - {% endif %}{% endraw %}{{ site.title }}</title>
-<meta name="description" content="{% raw %}{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}{% endraw %}">
+<meta name="theme-color" content="#1a237e">
 
-<!-- Bootstrap CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<!-- 自定義 CSS -->
-<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-<!-- 字體圖標 -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<!-- SEO Meta Tags -->
+<title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }} - {{ site.description }}{% endif %}</title>
+<meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+<meta name="keywords" content="{% if page.tags %}{{ page.tags | join: ', ' }}{% endif %}{% if page.categories %}, {{ page.categories | join: ', ' }}{% endif %}, 部落格, 科技, 投資, 生活">
+<meta name="author" content="{{ site.author }}">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+<meta property="og:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+<meta property="og:image" content="{% if page.image %}{{ page.image | absolute_url }}{% else %}{{ '/assets/images/avatar.svg' | absolute_url }}{% endif %}">
+<meta property="og:site_name" content="{{ site.title }}">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ page.url | absolute_url }}">
+<meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+<meta name="twitter:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+<meta name="twitter:image" content="{% if page.image %}{{ page.image | absolute_url }}{% else %}{{ '/assets/images/avatar.svg' | absolute_url }}{% endif %}">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+
+<!-- RSS Feed -->
+<link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
 
 <!-- Favicon -->
-<link rel="icon" href="{{ '/assets/images/favicon.ico' | relative_url }}">
+<link rel="icon" type="image/svg+xml" href="{{ '/assets/images/avatar.svg' | relative_url }}">
+<link rel="apple-touch-icon" href="{{ '/assets/images/avatar.svg' | relative_url }}">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- Custom CSS -->
+<style>
+:root {
+  --primary-color: #1a237e;
+  --secondary-color: #f5f5f5;
+  --accent-color: #3949ab;
+}
+body {
+  font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--secondary-color);
+}
+.navbar {
+  background-color: var(--primary-color) !important;
+}
+.card {
+  border: none;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.12);
+}
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+.btn-primary:hover {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+footer {
+  background-color: var(--primary-color);
+  color: rgba(255, 255, 255, 0.8);
+}
+footer a {
+  color: rgba(255, 255, 255, 0.9);
+}
+footer a:hover {
+  color: #fff;
+}
+@media (max-width: 768px) {
+  .card:hover {
+    transform: none;
+  }
+}
+</style>
