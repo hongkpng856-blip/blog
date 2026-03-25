@@ -3,7 +3,7 @@ title: "Sun ny 的部落格"
 author: "Sun ny"
 email: hongkpng856@gmail.com
 description: "分享科技、投資和生活品質提升的實用技巧"
-baseurl: "" # 如果部署在子路徑，請填寫，如 "/blog"
+baseurl: "/blog" # 如果部署在子路徑，請填寫，如 "/blog"
 url: "https://hongkpng856-blip.github.io" # 網站完整 URL
 
 # 社交媒體
