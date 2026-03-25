@@ -43,6 +43,7 @@ layout: default
         <!-- 主文章列表 -->
         <div class="col-lg-8">
             {% for post in paginator.posts %}
+{% if forloop.first %}{% continue %}{% endif %}
             {% if forloop.index == 3 %}
             <!-- 文章中間的廣告 -->
             <div class="card mb-4 text-center ad-card shadow-sm">
