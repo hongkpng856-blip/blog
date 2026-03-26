@@ -83,7 +83,7 @@ a:hover {
     box-shadow: 0 5px 15px rgba(26, 35, 126, 0.2);
 }
 .post-card img {
- height: 200px;
+ height: 300px;
  object-fit: cover;
  width: 100%;
 }
