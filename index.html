@@ -12,9 +12,9 @@ layout: default
  <div class="row align-items-center">
  <div class="col-md-6">
  {% if featured_post.image %}
- <img src="{{ featured_post.image | relative_url }}" alt="{{ featured_post.title }}" class="img-fluid rounded mb-3">
+ <img src="{{ featured_post.image | relative_url }}" alt="{{ featured_post.title }}" class="img-fluid rounded mb-3" style="height: 300px; object-fit: cover; width: 100%;">
  {% else %}
- <img src="{{ '/assets/images/default-post.svg' | relative_url }}" alt="{{ featured_post.title }}" class="img-fluid rounded mb-3">
+ <img src="{{ '/assets/images/default-post.svg' | relative_url }}" alt="{{ featured_post.title }}" class="img-fluid rounded mb-3" style="height: 300px; object-fit: cover; width: 100%;">
  {% endif %}
  </div>
  <div class="col-md-6">
