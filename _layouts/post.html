@@ -38,7 +38,9 @@ layout: default
           </div>
 
           <!-- 文章特色圖片 -->
-          {% if page.image %}
+          {% if page.featured_image %}
+<img src="{{ page.featured_image | relative_url }}" alt="{{ page.title }}" class="img-fluid rounded mb-4">
+{% elsif page.image %}
           <img src="{{ page.image | relative_url }}" alt="{{ page.title }}" class="img-fluid rounded mb-4">
           {% endif %}
 
