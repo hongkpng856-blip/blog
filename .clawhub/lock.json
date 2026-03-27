@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "skills": {
+    "skill-vetter": {
+      "version": "1.0.0",
+      "installedAt": 1773778683511
+    },
+    "agent-browser": {
+      "version": "0.2.0",
+      "installedAt": 1773778861295
+    },
+    "exa-web-search-free": {
+      "version": "1.0.1",
+      "installedAt": 1774359481931
+    },
+    "web": {
+      "version": "1.0.0",
+      "installedAt": 1774383239475
+    },
+    "web-deploy-github": {
+      "version": "1.0.0",
+      "installedAt": 1774385443537
+    }
+  }
+}

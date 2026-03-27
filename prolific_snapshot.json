@@ -1,0 +1,161 @@
+- generic
+  - generic
+    - generic
+      - generic
+      - paragraph
+        - StaticText "We collect and process your personal information for the following purposes: "
+          - InlineTextBox "We collect and process your personal information for the "
+          - InlineTextBox "following purposes: "
+        - strong
+          - StaticText "Service Provision, Performance Optimization, Marketing"
+            - InlineTextBox "Service Provision, Performance "
+            - InlineTextBox "Optimization, Marketing"
+        - StaticText ".
+To learn more, please read our "
+          - InlineTextBox "."
+          - InlineTextBox "
+"
+          - InlineTextBox "To learn more, please read our "
+        - link "privacy policy" [ref=e4]
+          - StaticText "privacy policy"
+            - InlineTextBox "privacy policy"
+        - StaticText ".
+"
+          - InlineTextBox "."
+          - InlineTextBox "
+"
+      - list
+        - listitem [level=1]
+          - button "Accept" [ref=e10]
+            - StaticText "Accept"
+              - InlineTextBox "Accept"
+        - listitem [level=1]
+          - button "Decline" [ref=e11]
+            - StaticText "Decline"
+              - InlineTextBox "Decline"
+        - listitem [level=1]
+          - button "Configure" [ref=e12]
+            - StaticText "Configure"
+              - InlineTextBox "Configure"
+- generic
+  - generic
+  - banner
+    - link [ref=e1]
+      - figure
+        - image "Prolific logo"
+    - list "waitlist form progress"
+      - listitem [level=1]
+        - paragraph
+          - StaticText "Profile"
+            - InlineTextBox "Profile"
+      - listitem [level=1]
+        - image "Step incomplete"
+        - paragraph
+          - StaticText "Demographics"
+            - InlineTextBox "Demographics"
+      - listitem [level=1]
+        - image "Step incomplete"
+        - paragraph
+          - StaticText "Languages"
+            - InlineTextBox "Languages"
+      - listitem [level=1]
+        - image "Step incomplete"
+        - paragraph
+          - StaticText "Education"
+            - InlineTextBox "Education"
+      - listitem [level=1]
+        - image "Step incomplete"
+        - paragraph
+          - StaticText "Work"
+            - InlineTextBox "Work"
+      - listitem [level=1]
+        - image "Step incomplete"
+        - paragraph
+          - StaticText "Other"
+            - InlineTextBox "Other"
+      - listitem [level=1]
+        - image "Step incomplete"
+        - paragraph
+          - StaticText "Confirmation"
+            - InlineTextBox "Confirmation"
+  - generic
+    - main
+      - heading "Profile" [level=1, ref=e2]
+        - StaticText "Profile"
+          - InlineTextBox "Profile"
+      - paragraph
+        - StaticText "Please enter your legal name exactly as it appears on your ID issued by your current country of residence. Otherwise, you may not be able to join. For a full list of accepted IDs, see this "
+          - InlineTextBox "Please enter your legal name exactly as it appears on your ID "
+          - InlineTextBox "issued by your current country of residence. Otherwise, you "
+          - InlineTextBox "may not be able to join. For a full list of accepted IDs, see this "
+        - link "article" [ref=e5]
+          - StaticText "article"
+            - InlineTextBox "article"
+        - StaticText "."
+          - InlineTextBox "."
+      - generic
+        - LabelText
+          - StaticText "First name"
+            - InlineTextBox "First name"
+        - textbox "First name" [required, ref=e6]
+          - generic
+        - LabelText
+          - StaticText "Last name"
+            - InlineTextBox "Last name"
+        - textbox "Last name" [required, ref=e7]
+          - generic
+        - LabelText
+          - StaticText "Email"
+            - InlineTextBox "Email"
+        - textbox "Email" [required, ref=e8]
+          - generic
+        - group "Date of birth"
+          - Legend
+            - StaticText "Date of birth"
+              - InlineTextBox "Date of birth"
+          - generic
+            - generic
+              - generic
+                - generic
+                  - combobox "Month" [expanded=false, ref=e16]
+                    - generic
+                  - generic
+                    - image
+          - textbox "Day" [required, ref=e13]
+            - generic
+          - textbox "Year" [required, ref=e14]
+            - generic
+        - LabelText
+          - StaticText "What is your sex, as recorded on legal / official documents?"
+            - InlineTextBox "What is your sex, as recorded on legal / official documents?"
+        - generic
+          - generic
+            - generic
+              - generic
+                - combobox "What is your sex, as recorded on legal / official documents?" [expanded=false, ref=e15]
+                  - generic
+                - generic
+                  - image
+        - button "Next" [ref=e9]
+          - StaticText "Next"
+            - InlineTextBox "Next"
+  - complementary
+    - generic
+      - group "Logos of companies and researchers on our platform"
+        - figure
+          - image "Cancer Research UK"
+        - figure
+          - image "Google"
+        - figure
+          - image "Asana"
+        - figure
+          - image "Columbia University School of Professional Studies"
+        - figure
+          - image "yale_logo"
+        - figure
+          - image "Stanford University"
+      - heading "Become a participant for world-leading organizations" [level=2, ref=e3]
+        - StaticText "Become a participant for world-leading organizations"
+          - InlineTextBox "Become a participant for world-leading "
+          - InlineTextBox "organizations"
+- generic

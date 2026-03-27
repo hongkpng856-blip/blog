@@ -1,0 +1,331 @@
+/* ==========================================
+   免費資源網 - 響應式樣式
+   ========================================== */
+
+/* ==========================================
+   平板裝置 (max-width: 992px)
+   ========================================== */
+@media screen and (max-width: 992px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .content-wrapper {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .sidebar {
+        position: static;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .sidebar .widget {
+        margin-bottom: 0;
+    }
+
+    .sidebar .ad-sidebar {
+        grid-column: span 2;
+        margin: 0 auto;
+    }
+
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .posts-grid {
+        gap: 20px;
+    }
+}
+
+/* ==========================================
+   手機裝置 (max-width: 768px)
+   ========================================== */
+@media screen and (max-width: 768px) {
+    /* Header */
+    .header-content {
+        height: 60px;
+    }
+
+    .logo a {
+        font-size: 1.2rem;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background-color: var(--bg-white);
+        padding: 20px;
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition);
+    }
+
+    .nav-menu.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .nav-menu ul li {
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .nav-menu ul li a {
+        display: block;
+        padding: 15px 0;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    /* Hero */
+    .hero {
+        padding: 50px 0;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    /* Posts Grid */
+    .posts-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .post-image {
+        height: 180px;
+    }
+
+    /* Sidebar */
+    .sidebar {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar .ad-sidebar {
+        grid-column: span 1;
+    }
+
+    /* Ads */
+    .ad-banner {
+        max-width: 100%;
+        height: auto;
+        min-height: 60px;
+        padding: 15px;
+    }
+
+    .ad-sidebar {
+        max-width: 100%;
+        height: auto;
+        min-height: 200px;
+    }
+
+    /* Newsletter */
+    .newsletter {
+        padding: 40px 20px;
+    }
+
+    .newsletter h2 {
+        font-size: 1.5rem;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+    }
+
+    .newsletter-form input,
+    .newsletter-form .btn {
+        width: 100%;
+    }
+
+    /* Footer */
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .footer-section {
+        text-align: center;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    .contact-info {
+        justify-content: center;
+    }
+
+    .contact-info li {
+        justify-content: center;
+    }
+
+    /* Back to Top */
+    .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+    }
+
+    /* Pagination */
+    .pagination {
+        flex-wrap: wrap;
+    }
+
+    .page-btn {
+        width: 36px;
+        height: 36px;
+    }
+}
+
+/* ==========================================
+   小型手機 (max-width: 480px)
+   ========================================== */
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 0 10px;
+    }
+
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+
+    .section-title {
+        font-size: 1.2rem;
+    }
+
+    .post-content {
+        padding: 15px;
+    }
+
+    .post-content h3 {
+        font-size: 1rem;
+    }
+
+    .widget {
+        padding: 15px;
+    }
+
+    .widget-title {
+        font-size: 1rem;
+    }
+
+    .tag {
+        padding: 5px 10px;
+        font-size: 0.8rem;
+    }
+
+    .popular-posts .rank {
+        width: 24px;
+        height: 24px;
+        font-size: 0.8rem;
+    }
+
+    .popular-posts .title {
+        font-size: 0.9rem;
+    }
+}
+
+/* ==========================================
+   橫向手機 (landscape)
+   ========================================== */
+@media screen and (max-width: 896px) and (orientation: landscape) {
+    .hero {
+        padding: 40px 0;
+    }
+
+    .hero h1 {
+        font-size: 1.6rem;
+    }
+
+    .posts-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ==========================================
+   高解析度螢幕 (min-width: 1400px)
+   ========================================== */
+@media screen and (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+    }
+
+    .content-wrapper {
+        grid-template-columns: 1fr 350px;
+    }
+
+    .posts-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+}
+
+/* ==========================================
+   列印樣式
+   ========================================== */
+@media print {
+    .header,
+    .ad-container,
+    .newsletter,
+    .sidebar,
+    .back-to-top,
+    .pagination {
+        display: none !important;
+    }
+
+    .content-wrapper {
+        display: block;
+    }
+
+    .main-content {
+        padding: 0;
+    }
+
+    .post-card {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ccc;
+    }
+}
+
+/* ==========================================
+   深色模式支援 (optional)
+   ========================================== */
+@media (prefers-color-scheme: dark) {
+    /* 如需深色模式，可在此加入樣式 */
+}
+
+/* ==========================================
+   減少動畫 (accessibility)
+   ========================================== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

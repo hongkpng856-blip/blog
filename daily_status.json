@@ -1,0 +1,41 @@
+{
+  "timestamp": "2026-03-20T07:51:06.236187",
+  "platforms": {
+    "prolific": {
+      "accessible": true,
+      "captcha": false
+    },
+    "prizerebel": {
+      "accessible": true,
+      "captcha": true
+    },
+    "swagbucks": {
+      "accessible": true,
+      "captcha": true
+    },
+    "microsoft_rewards": {
+      "accessible": false,
+      "error": "HTTP Error 400: Bad Request",
+      "captcha": false
+    }
+  },
+  "current_earnings": 0,
+  "target": 5.0,
+  "gap": 5.0,
+  "actions": [
+    {
+      "priority": 1,
+      "name": "\u8a3b\u518a Prolific",
+      "url": "https://app.prolific.com/register/participant/join-waitlist/about-yourself",
+      "expected": "$5-20/\u7814\u7a76",
+      "captcha": false
+    },
+    {
+      "priority": 0,
+      "name": "\u51fa\u552e\u8173\u672c\u5305",
+      "url": "Gumroad",
+      "expected": "$5/\u4efd",
+      "captcha": false
+    }
+  ]
+}

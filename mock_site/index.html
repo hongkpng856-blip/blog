@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模擬網站 - BOT 測試</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 50px auto; padding: 20px; }
+        h1 { color: #333; }
+        .click-area { background: #f0f0f0; padding: 20px; margin: 20px 0; border-radius: 8px; cursor: pointer; }
+        .click-area:hover { background: #e0e0e0; }
+        #counter { font-size: 24px; color: #007bff; }
+        .stats { background: #d4edda; padding: 15px; border-radius: 8px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>🌐 模擬網站</h1>
+    <p>這是一個用於 BOT 測試的靜態網站。</p>
+    
+    <div class="click-area" onclick="incrementCounter()">
+        <h2>👆 點擊這裡</h2>
+        <p>點擊次數：<span id="counter">0</span></p>
+    </div>
+    
+    <div class="stats">
+        <h3>📊 統計資訊</h3>
+        <p>網站載入時間：<span id="loadTime"></span></p>
+        <p>當前時間：<span id="currentTime"></span></p>
+    </div>
+    
+    <script>
+        let count = 0;
+        function incrementCounter() {
+            count++;
+            document.getElementById('counter').textContent = count;
+        }
+        document.getElementById('loadTime').textContent = new Date().toLocaleString('zh-TW');
+        setInterval(() => {
+            document.getElementById('currentTime').textContent = new Date().toLocaleString('zh-TW');
+        }, 1000);
+    </script>
+</body>
+</html>

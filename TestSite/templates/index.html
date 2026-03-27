@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>測試網站</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+    <div class="bg-white p-8 rounded shadow-md text-center">
+        <h1 class="text-2xl font-bold mb-4">測試網站 (IP Test Site)</h1>
+        <p class="mb-2">此網站提供簡易的 <code>/ping</code> API，回傳伺服器時間。</p>
+        <a href="/ping" class="text-blue-600 underline">點擊查看 /ping 結果</a>
+        <div id="time" class="mt-4 text-gray-700"></div>
+        <script>
+            // 用 fetch 讀取 /ping 並顯示
+            fetch('/ping')
+                .then(r => r.json())
+                .then(d => {
+                    document.getElementById('time').textContent = '伺服器回傳時間：' + d.timestamp;
+                })
+                .catch(err => {
+                    document.getElementById('time').textContent = '取得失敗：' + err;
+                });
+        </script>
+    </div>
+</body>
+</html>

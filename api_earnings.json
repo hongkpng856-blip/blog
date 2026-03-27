@@ -1,0 +1,71 @@
+{
+  "timestamp": "2026-03-20T06:08:00.198007",
+  "platforms": {
+    "surveys": [
+      {
+        "name": "Google Opinion Rewards",
+        "type": "app_based",
+        "notes": "\u9700\u8981\u624b\u6a5f App",
+        "accessible": null,
+        "last_check": "2026-03-20T06:08:00.198306"
+      },
+      {
+        "name": "Microsoft Rewards",
+        "type": "search_api",
+        "url": "https://rewards.microsoft.com",
+        "notes": "\u6bcf\u65e5\u641c\u7d22\u53ef\u8cfa\u7a4d\u5206",
+        "accessible": false,
+        "last_check": "2026-03-20T06:08:00.372091"
+      }
+    ],
+    "data_sales": [
+      {
+        "name": "Honeygain",
+        "type": "bandwidth_sharing",
+        "url": "https://www.honeygain.com",
+        "payout": "$1/10GB",
+        "notes": "\u9700\u5b89\u88dd\u8edf\u9ad4",
+        "accessible": true,
+        "last_check": "2026-03-20T06:08:01.731765"
+      },
+      {
+        "name": "PacketStream",
+        "type": "bandwidth_sharing",
+        "url": "https://packetstream.io",
+        "payout": "$0.10/GB",
+        "notes": "\u9700\u5b89\u88dd\u8edf\u9ad4",
+        "accessible": true,
+        "last_check": "2026-03-20T06:08:01.879035"
+      }
+    ],
+    "api_tasks": [
+      {
+        "name": "RapidAPI",
+        "type": "api_marketplace",
+        "url": "https://rapidapi.com",
+        "notes": "\u53ef\u767c\u5e03 API \u6536\u8cbb",
+        "accessible": true,
+        "last_check": "2026-03-20T06:08:02.291939"
+      },
+      {
+        "name": "Lambda Test",
+        "type": "testing",
+        "url": "https://www.lambdatest.com",
+        "notes": "\u6e2c\u8a66\u8cfa\u53d6\u7a4d\u5206",
+        "accessible": true,
+        "last_check": "2026-03-20T06:08:02.857282"
+      }
+    ],
+    "automation": [
+      {
+        "name": "UserTesting",
+        "type": "ux_testing",
+        "url": "https://www.usertesting.com",
+        "payout": "$10/test",
+        "notes": "\u9700\u9304\u88fd\u87a2\u5e55",
+        "accessible": true,
+        "last_check": "2026-03-20T06:08:03.171145"
+      }
+    ]
+  }
+}

@@ -1,0 +1,77 @@
+[
+  {
+    "timestamp": "2026-03-20T06:08:00.197668",
+    "level": "INFO",
+    "message": "\u958b\u59cb\u7814\u7a76 API \u8cfa\u9322\u5e73\u53f0..."
+  },
+  {
+    "timestamp": "2026-03-20T06:08:00.198019",
+    "level": "INFO",
+    "message": "\u6aa2\u67e5 surveys \u985e\u5225..."
+  },
+  {
+    "timestamp": "2026-03-20T06:08:00.198320",
+    "level": "INFO",
+    "message": "  - Google Opinion Rewards: \u5f85\u9a57\u8b49"
+  },
+  {
+    "timestamp": "2026-03-20T06:08:00.372121",
+    "level": "INFO",
+    "message": "  - Microsoft Rewards: \u5f85\u9a57\u8b49"
+  },
+  {
+    "timestamp": "2026-03-20T06:08:00.372725",
+    "level": "INFO",
+    "message": "\u6aa2\u67e5 data_sales \u985e\u5225..."
+  },
+  {
+    "timestamp": "2026-03-20T06:08:01.731787",
+    "level": "INFO",
+    "message": "  - Honeygain: \u53ef\u9054"
+  },
+  {
+    "timestamp": "2026-03-20T06:08:01.879058",
+    "level": "INFO",
+    "message": "  - PacketStream: \u53ef\u9054"
+  },
+  {
+    "timestamp": "2026-03-20T06:08:01.879610",
+    "level": "INFO",
+    "message": "\u6aa2\u67e5 api_tasks \u985e\u5225..."
+  },
+  {
+    "timestamp": "2026-03-20T06:08:02.291961",
+    "level": "INFO",
+    "message": "  - RapidAPI: \u53ef\u9054"
+  },
+  {
+    "timestamp": "2026-03-20T06:08:02.857306",
+    "level": "INFO",
+    "message": "  - Lambda Test: \u53ef\u9054"
+  },
+  {
+    "timestamp": "2026-03-20T06:08:02.857995",
+    "level": "INFO",
+    "message": "\u6aa2\u67e5 automation \u985e\u5225..."
+  },
+  {
+    "timestamp": "2026-03-20T06:08:03.171170",
+    "level": "INFO",
+    "message": "  - UserTesting: \u53ef\u9054"
+  },
+  {
+    "timestamp": "2026-03-20T06:08:03.173126",
+    "level": "INFO",
+    "message": "\u7814\u7a76\u5b8c\u6210\uff0c\u7d50\u679c\u5df2\u4fdd\u5b58\u5230 /home/claw/.openclaw/workspace/api_earnings.json"
+  },
+  {
+    "timestamp": "2026-03-20T06:08:03.175161",
+    "level": "INFO",
+    "message": "\u8a08\u756b\u5df2\u4fdd\u5b58\u5230 /home/claw/.openclaw/workspace/api_earning_plan.md"
+  },
+  {
+    "timestamp": "2026-03-20T06:08:03.180726",
+    "level": "INFO",
+    "message": "Bing \u641c\u7d22\u8173\u672c\u5df2\u5efa\u7acb: /home/claw/.openclaw/workspace/bing_search_automation.py"
+  }
+]

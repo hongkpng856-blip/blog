@@ -1,0 +1,70 @@
+{
+  "timestamp": "2026-03-24T12:26:12.619494",
+  "summary": {
+    "total_clicks": 3,
+    "successful": 3,
+    "failed": 0,
+    "success_rate": 100.0,
+    "total_session_time_seconds": 471.72,
+    "total_session_time_minutes": 7.86
+  },
+  "results": [
+    {
+      "url": "https://hongkpng856-blip.github.io/ip-tracker/",
+      "proxy": null,
+      "timestamp": "2026-03-24T12:23:41.509450",
+      "success": true,
+      "session": {
+        "start_time": "2026-03-24T12:23:41.509539",
+        "total_time": 62.1,
+        "actions": [
+          "頁面載入 (3.1s)",
+          "初始瀏覽 (4.8s)",
+          "頁面滾動 (39.8s)",
+          "思考 (14.5s)"
+        ],
+        "action_count": 4
+      },
+      "error": null,
+      "status_code": 200
+    },
+    {
+      "url": "https://hongkpng856-blip.github.io/ip-tracker/",
+      "proxy": null,
+      "timestamp": "2026-03-24T12:24:12.034876",
+      "success": true,
+      "session": {
+        "start_time": "2026-03-24T12:24:12.034911",
+        "total_time": 390.51,
+        "actions": [
+          "頁面載入 (4.0s)",
+          "初始瀏覽 (6.6s)",
+          "頁面滾動 (13.4s)",
+          "閱讀內容 (364.2s)",
+          "思考 (2.4s)"
+        ],
+        "action_count": 5
+      },
+      "error": null,
+      "status_code": 200
+    },
+    {
+      "url": "https://hongkpng856-blip.github.io/ip-tracker/",
+      "proxy": null,
+      "timestamp": "2026-03-24T12:26:12.319987",
+      "success": true,
+      "session": {
+        "start_time": "2026-03-24T12:26:12.320017",
+        "total_time": 19.11,
+        "actions": [
+          "頁面載入 (1.3s)",
+          "初始瀏覽 (10.0s)",
+          "思考 (7.8s)"
+        ],
+        "action_count": 3
+      },
+      "error": null,
+      "status_code": 200
+    }
+  ]
+}

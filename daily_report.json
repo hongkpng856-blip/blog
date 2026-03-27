@@ -1,0 +1,26 @@
+{
+  "date": "2026-03-22",
+  "time": "03:35:00",
+  "ip_status": "blocked",
+  "total_earned": 0.0,
+  "target": 5.0,
+  "platforms": {
+    "prolific": {
+      "status": "waitlist",
+      "priority": 1
+    },
+    "qmee": {
+      "status": "blocked",
+      "priority": 2
+    },
+    "prizeRebel": {
+      "status": "captcha",
+      "priority": 3
+    }
+  },
+  "recommendations": [
+    "建議：等待 IP 冷卻或使用 VPN",
+    "建議：等待 Prolific 審核結果",
+    "建議：手動驗證其他 7 個平台的 email"
+  ]
+}

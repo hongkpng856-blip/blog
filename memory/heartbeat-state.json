@@ -1,0 +1,9 @@
+{
+  "lastChecks": {
+    "weather": null,
+    "calendar": null,
+    "email": null
+  },
+  "lastHeartbeat": "2026-03-27T03:14:00Z",
+  "weatherError": "wttr.in returned 500"
+}
