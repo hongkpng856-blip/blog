@@ -28,7 +28,7 @@ layout: default
  <span class="ms-3"><i class="far fa-comment me-1"></i> {{ featured_post.comments_count }}</span>
  {% endif %}
  </p>
- <p class="card-text">{{ featured_post.excerpt | strip_html | truncate: 60 }}</p>
+ <p class="card-text">{{ featured_post.excerpt | strip_html | truncate: 120 }}</p>
  <a href="{{ featured_post.url | relative_url }}" class="btn btn-primary">
  <i class="fas fa-book-open me-1"></i>閱讀更多
  </a>
@@ -80,7 +80,7 @@ layout: default
  <span class="ms-3"><i class="far fa-comment me-1"></i> {{ post.comments_count }}</span>
  {% endif %}
  </p>
- <p class="card-text">{{ post.excerpt | strip_html | truncate: 60 }}</p>
+ <p class="card-text">{{ post.excerpt | strip_html | truncate: 120 }}</p>
  <a href="{{ post.url | relative_url }}" class="btn btn-outline-primary btn-sm">
  <i class="fas fa-arrow-right me-1"></i>閱讀更多
  </a>
