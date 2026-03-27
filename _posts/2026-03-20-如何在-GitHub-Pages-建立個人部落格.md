@@ -5,7 +5,7 @@ date: 2026-03-20
 categories: 技術
 tags: [GitHub, Jekyll, 教學, 網頁開發]
 comments_count: 5
-image: /assets/images/featured/如何在-github-pages-建立個人部落格.svg
+image: /assets/images/featured/如何在-GitHub-Pages-建立個人部落格.jpg
 ---
 
 GitHub Pages 是一個非常方便的靜態網站託管服務，您可以免費將您的網站部署在 GitHub 上。在本文中，我們將詳細介紹如何從零開始建立一個個人部落格，並將其部署到 GitHub Pages 上。
