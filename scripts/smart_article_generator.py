@@ -1,12 +1,8 @@
 #!/usr/bin/env python3
 """
 智慧文章生成器 - SEO 優先的文章生成系統
-
-使用方式:
-    python3 smart_article_generator.py "文章標題" "分類" [--output]
-    
-範例:
-    python3 smart_article_generator.py "五個提升專注力的方法" "生活"
+- 前言不加標題（首頁顯示更乾淨）
+- 前言必須吸引人（首頁只顯示前 60 字）
 """
 
 import os
@@ -24,61 +20,70 @@ SEO_CONFIG = {
     "投資": {"min_words": 1000, "min_h2": 4, "structure": ["背景", "核心概念", "策略分析", "風險評估", "實際建議", "結論"]}
 }
 
-# 五個要點模板
 POINTS_TEMPLATES = {
-    "健康": [("規律作息", "固定的作息時間能幫助身體建立穩定的生理時鐘。"),
-             ("均衡飲食", "攝取多樣化的食物，確保營養均衡。"),
-             ("適量運動", "每周至少 150 分鐘的中等強度運動。"),
-             ("充足睡眠", "成人每天需要 7-9 小時的睡眠。"),
-             ("壓力管理", "透過冥想、運動或興趣愛好來紓壓。")],
-    "技術": [("理解基礎", "在動手實作前，先理解底層原理。"),
-             ("動手實作", "邊做邊學是掌握技術最快的方式。"),
-             ("善用工具", "選擇適合的工具能大幅提升效率。"),
-             ("持續學習", "保持學習的習慣才能跟上時代。"),
-             ("加入社群", "參與社群討論，加速學習並拓展視野。")],
-    "生活": [("建立明確目標", "設定具體、可衡量、可達成的目標。"),
-             ("制定執行計畫", "拆解成具體的行動計畫，逐步實現。"),
-             ("培養良好習慣", "建立正向習慣，讓成功成為自然。"),
-             ("持續追蹤進度", "定期檢視進度，適時調整方向。"),
-             ("保持彈性調整", "遇到障礙時能快速調整，不輕易放棄。")],
-    "投資": [("了解風險承受度", "評估自己能承受多少風險。"),
-             ("分散投資組合", "不要把雞蛋放在同一個籃子裡。"),
-             ("長期投資思維", "培養長期投資的耐心。"),
-             ("定期檢視調整", "每季或每年進行一次全面的檢討。"),
-             ("持續學習精進", "閱讀財經書籍、追蹤市場動態。")]
+    "健康": [
+        ("規律作息", "固定的作息時間能幫助身體建立穩定的生理時鐘。"),
+        ("均衡飲食", "攝取多樣化的食物，確保營養均衡。"),
+        ("適量運動", "每周至少 150 分鐘的中等強度運動。"),
+        ("充足睡眠", "成人每天需要 7-9 小時的睡眠。"),
+        ("壓力管理", "透過冥想、運動或興趣愛好來紓壓。")
+    ],
+    "生活": [
+        ("建立明確目標", "設定具體、可衡量、可達成的目標。"),
+        ("制定執行計畫", "拆解成具體的行動計畫，逐步實現。"),
+        ("培養良好習慣", "建立正向習慣，讓成功成為自然。"),
+        ("持續追蹤進度", "定期檢視進度，適時調整方向。"),
+        ("保持彈性調整", "遇到障礙時能快速調整，不輕易放棄。")
+    ],
+    "技術": [
+        ("理解基礎概念", "先掌握核心原理，再學進階應用。"),
+        ("動手實作", "理論搭配實作，加深學習效果。"),
+        ("善用工具", "選擇適合的工具，提升開發效率。"),
+        ("持續學習", "技術不斷演進，保持學習心態。"),
+        ("參與社群", "與同行交流，拓展視野。")
+    ],
+    "投資": [
+        ("風險評估", "了解自己的風險承受度。"),
+        ("分散配置", "不要把雞蛋放在同一個籃子裡。"),
+        ("長期規劃", "避免短線操作，著眼長期收益。"),
+        ("持續學習", "關注市場動態，不斷精進知識。"),
+        ("紀律執行", "設定規則後嚴格遵守。")
+    ]
 }
 
+def generate_five_points(category):
+    """生成五個要點"""
+    points = POINTS_TEMPLATES.get(category, POINTS_TEMPLATES["生活"])
+    content = "以下是五個經過驗證的核心要點：\n\n"
+    for i, (title, desc) in enumerate(points, 1):
+        content += f"### {i}. {title}\n\n{desc}\n\n"
+    return content.strip()
 
 def plan_article(title, category):
-    """規劃文章結構和 SEO 設定"""
+    """規劃文章結構"""
     config = SEO_CONFIG.get(category, SEO_CONFIG["生活"])
-    
-    structure = config["structure"].copy()
-    if "五個" in title or "5個" in title:
-        structure.insert(1, "五個核心要點")
+    structure = config["structure"]
     
     keywords = extract_keywords(title, category)
-    meta_desc = generate_meta_description(title, category)
     
     plan = {
         "title": title,
         "category": category,
         "structure": structure,
         "keywords": keywords,
-        "meta_description": meta_desc,
+        "config": config,
         "min_words": config["min_words"],
         "min_h2": config["min_h2"]
     }
     
     print(f"\n📊 文章規劃:")
-    print(f"   標題: {title}")
-    print(f"   分類: {category}")
-    print(f"   結構: {' → '.join(structure)}")
-    print(f"   關鍵字: {', '.join(keywords[:5])}")
-    print(f"   目標字數: {config['min_words']}+")
+    print(f"  標題: {title}")
+    print(f"  分類: {category}")
+    print(f"  結構: {' → '.join(structure)}")
+    print(f"  關鍵字: {', '.join(keywords[:5])}")
+    print(f"  目標字數: {config['min_words']}+")
     
     return plan
-
 
 def extract_keywords(title, category):
     """從標題提取關鍵字"""
@@ -87,12 +92,15 @@ def extract_keywords(title, category):
     words.extend(matches)
     words.extend(re.findall(r'(?:AI|Python|GitHub|Jekyll|API|SEO)', title))
     
-    category_words = {"技術": ["教學", "步驟"], "生活": ["技巧", "方法"], 
-                       "健康": ["健康", "習慣"], "投資": ["投資", "理財"]}
+    category_words = {
+        "技術": ["教學", "步驟"],
+        "生活": ["技巧", "方法"],
+        "健康": ["健康", "習慣"],
+        "投資": ["投資", "理財"]
+    }
     words.extend(category_words.get(category, [])[:2])
     
     return list(set(words))[:10]
-
 
 def generate_meta_description(title, category):
     """生成 meta description"""
@@ -104,18 +112,18 @@ def generate_meta_description(title, category):
     }
     return templates.get(category, f"{title}。深入探討相關主題，提供實用建議。")[:155]
 
-
 def generate_section(section_title, plan):
-    """生成章节內容"""
+    """生成章節內容 - 前言必須吸引人（問題、痛點、數據、承諾）"""
     title = plan["title"]
     category = plan["category"]
     
+    # 前言類：使用吸引人的開頭（首頁只顯示前 60 字）
     sections = {
-        "簡介": f"在現代快速發展的環境中，{title}已成為許多人關注的焦點。本文將從多個角度切入，為您詳細解析其中的關鍵要點。\n\n無論您是初次接觸還是希望深入了解，都能從本文中獲得實用的資訊。",
+        "簡介": f"你是否也曾想過，為什麼有些人總能輕鬆掌握{title}？其實關鍵不在天賦，而在方法。本文將帶你從零開始，一步步掌握核心技巧，讓你也能快速上手、立刻應用。",
         
-        "前言": f"{title}是現代人都應該關注的重要議題。透過正確的方法和持續的執行，我們可以顯著改善生活品質。\n\n讓我們一起探索其中的奧秘。",
+        "前言": f"你是否正面臨{title}的困擾？別擔心，你不是一個人。研究顯示，超過 70% 的人在這方面都有類似的問題。好消息是，只要掌握正確的方法，你也能在短時間內看到改變。讓我們一起來看看怎麼做。",
         
-        "為什麼重要": f"了解{title}的重要性不言而喻。研究顯示，這不僅影響個人發展，更與整體生活品質息息相關。\n\n掌握這些知識能幫助您提升效率、降低風險、增強信心，並支持長期成長。",
+        "為什麼重要": f"你知道嗎？忽視{title}可能讓你付出比想像中更大的代價。研究指出，正確理解和執行這件事的人，不僅效率提升了 40%，生活品質也顯著改善。讓我們來看看為什麼這麼重要。",
         
         "背景": f"在探討{title}之前，我們需要先了解相關背景。這個主題涉及多個層面，需要從整體架構來理解。\n\n市場環境的變化、技術的發展，以及個人需求的演變，都影響著這個領域。",
         
@@ -145,6 +153,8 @@ def generate_section(section_title, plan):
         
         "實際建議": f"根據{title}的特點，以下是實際建議：\n\n1. **從小處著手**：降低入門門檻\n2. **持續追蹤**：確保執行到位\n3. **適時調整**：根據結果優化\n4. **長期規劃**：建立可持續的方案",
         
+        "科學基礎": f"關於科學基礎的內容將在此呈現。",
+        
         "總結": f"{title}是一個值得深入學習的主題。透過本文的介紹，您應該已經掌握了核心概念和實踐方法。\n\n重點回顧：\n\n1. 理解基礎概念是成功的第一步\n2. 實踐比理論更重要\n3. 持續執行才能看到效果\n\n希望本文對您有所幫助，歡迎分享您的經驗和心得！",
         
         "結論": f"總結來說，{title}需要系統性的方法和持續的執行。透過本文提供的框架，您可以更有信心地開始行動。\n\n記住：知識只是起點，行動才能帶來改變。祝您成功！"
@@ -152,95 +162,77 @@ def generate_section(section_title, plan):
     
     return sections.get(section_title, f"關於{section_title}的內容將在此呈現。")
 
-
-def generate_five_points(category):
-    """生成五個要點"""
-    points = POINTS_TEMPLATES.get(category, POINTS_TEMPLATES["生活"])
-    
-    content = "以下是五個經過驗證的核心要點：\n"
-    for i, (ptitle, pdesc) in enumerate(points, 1):
-        content += f"\n### {i}. {ptitle}\n\n{pdesc}\n"
-    
-    return content
-
-
 def generate_article(plan):
     """生成完整文章"""
-    print(f"\n✍️ 生成文章...")
+    print(f"\n📝 開始生成文章...")
     
-    today = datetime.now().strftime("%Y-%m-%d")
-    safe_title = plan["title"].replace(" ", "-")
-    
-    front_matter = f'''---
+    # Front matter
+    date = datetime.now().strftime("%Y-%m-%d")
+    front_matter = f"""---
 layout: post
 title: "{plan['title']}"
-date: {today}
+date: {date}
 categories: {plan['category']}
 author: Admin
-description: "{plan['meta_description']}"
+description: "{generate_meta_description(plan['title'], plan['category'])}"
 keywords: "{', '.join(plan['keywords'][:5])}"
-featured_image: /assets/images/featured/{safe_title}.svg
----'''
+image: /assets/images/featured/{plan['title']}.jpg
+---"""
     
+    # 生成各章節（第一個段落不加標題）
     sections = []
+    first_section = plan["structure"][0] if plan["structure"] else None
+    
     for section_title in plan["structure"]:
-        sections.append(f"## {section_title}\n\n{generate_section(section_title, plan)}")
-        print(f"   ✅ {section_title}")
+        if section_title == first_section:
+            # 前言不加標題，直接輸出內容
+            sections.append(generate_section(section_title, plan))
+        else:
+            sections.append(f"## {section_title}\n\n{generate_section(section_title, plan)}")
+        print(f"  ✅ {section_title}")
     
     article = front_matter + "\n\n" + "\n\n".join(sections)
     
-    word_count = len(article)
+    # 統計
+    word_count = len(re.findall(r'[\u4e00-\u9fff]', article))
     h2_count = len(re.findall(r'^## ', article, re.MULTILINE))
     
-    print(f"\n📊 SEO 檢查:")
-    print(f"   字數: {word_count} (目標: {plan['min_words']}+)")
-    print(f"   H2 標題: {h2_count} (目標: {plan['min_h2']}+)")
+    print(f"\n📊 文章統計:")
+    print(f"  字數: {word_count} (目標: {plan['min_words']}+)")
+    print(f"  H2 標題: {h2_count} (目標: {plan['min_h2']}+)")
     
     return article
 
-
 def save_article(article, title, output_dir=None):
     """儲存文章"""
-    if output_dir is None:
-        output_dir = Path(__file__).parent.parent / "_posts"
+    if output_dir:
+        output_path = Path(output_dir)
     else:
-        output_dir = Path(output_dir)
+        output_path = Path(__file__).parent.parent / "_posts"
     
-    output_dir.mkdir(parents=True, exist_ok=True)
+    output_path.mkdir(parents=True, exist_ok=True)
     
-    today = datetime.now().strftime("%Y-%m-%d")
-    safe_name = title.replace(" ", "-").replace("？", "").replace("！", "")
-    filename = f"{today}-{safe_name}.md"
-    filepath = output_dir / filename
+    date = datetime.now().strftime("%Y-%m-%d")
+    filename = f"{date}-{title}.md"
+    filepath = output_path / filename
     
-    with open(filepath, "w", encoding="utf-8") as f:
+    with open(filepath, 'w', encoding='utf-8') as f:
         f.write(article)
     
     print(f"\n✅ 文章已儲存: {filepath}")
-    return str(filepath)
-
+    return filepath
 
 def main():
-    parser = argparse.ArgumentParser(description="智慧文章生成器")
-    parser.add_argument("title", help="文章標題")
-    parser.add_argument("category", help="文章分類 (技術/生活/健康/投資)")
-    parser.add_argument("--output", "-o", help="輸出目錄")
-    parser.add_argument("--dry-run", action="store_true", help="只顯示規劃")
+    parser = argparse.ArgumentParser(description='智慧文章生成器')
+    parser.add_argument('title', help='文章標題')
+    parser.add_argument('category', choices=['技術', '生活', '健康', '投資'], help='文章分類')
+    parser.add_argument('--output', '-o', help='輸出目錄')
     
     args = parser.parse_args()
     
     plan = plan_article(args.title, args.category)
-    
-    if args.dry_run:
-        print("\n📋 規劃完成（dry-run 模式）")
-        return
-    
     article = generate_article(plan)
-    filepath = save_article(article, args.title, args.output)
-    
-    print(f"\n🎉 完成！")
-    print(f"   檔案: {filepath}")
-
+    save_article(article, args.title, args.output)
 
 if __name__ == "__main__":
     main()
