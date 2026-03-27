@@ -181,7 +181,10 @@ class SEOOptimizer:
         external = []
         
         for text, url in links:
-            if url.startswith('/') or url.startswith('./') or 'github.io' in url:
+            # 處理 Liquid 模板語法
+            clean_url = url.replace('{{ site.baseurl }}', '').replace('{{site.baseurl}}', '')
+            # 內部連結：以 / 開頭或包含 github.io
+            if clean_url.startswith('/') or 'github.io' in url:
                 internal.append({"text": text, "url": url})
             elif url.startswith('http'):
                 external.append({"text": text, "url": url})

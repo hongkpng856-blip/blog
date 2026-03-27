@@ -1,0 +1,43 @@
+{
+  "timestamp": "2026-03-27T17:45:56.706801",
+  "articles": [
+    {
+      "category": "技術",
+      "title": "Python 自動化入門：用程式碼簡化你的生活"
+    },
+    {
+      "category": "生活",
+      "title": "極簡主義生活：如何用更少擁有更多"
+    },
+    {
+      "category": "健康",
+      "title": "提升免疫力的五個日常習慣"
+    }
+  ],
+  "images": [
+    {
+      "title": "Python 自動化入門：用程式碼簡化你的生活",
+      "category": "技術",
+      "image_path": null,
+      "image_filename": null
+    },
+    {
+      "title": "極簡主義生活：如何用更少擁有更多",
+      "category": "生活",
+      "image_path": null,
+      "image_filename": null
+    },
+    {
+      "title": "提升免疫力的五個日常習慣",
+      "category": "健康",
+      "image_path": null,
+      "image_filename": null
+    }
+  ],
+  "seo_summary": {
+    "avg_score": 63.57142857142857,
+    "total_words": 6889,
+    "article_count": 7
+  },
+  "next_step": "fill_content"
+}
