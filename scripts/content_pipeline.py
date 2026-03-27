@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """
-內容生產管線
-1. 生成 3 篇文章
-2. 為每篇文章生成 AI 圖片
-3. 更新到網站
+內容生產管線 + SEO 優化整合
+1. 生成文章內容
+2. SEO 自動優化（meta description、關鍵字建議、標題結構檢查）
+3. 生成 AI 圖片
+4. 產出 SEO 報告
 """
 
 import os
@@ -14,18 +15,30 @@ import subprocess
 from datetime import datetime
 from pathlib import Path
 
-# 文章模板
+# 匯入 SEO 優化器
+try:
+    from seo_optimizer import SEOOptimizer
+except ImportError:
+    # 如果直接執行，使用相對匯入
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("seo_optimizer", 
+        Path(__file__).parent / "seo_optimizer.py")
+    seo_module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(seo_module)
+    SEOOptimizer = seo_module.SEOOptimizer
+
+# 文章模板（加入 SEO 元素）
 ARTICLE_TEMPLATES = {
     "技術": {
         "template": """---
 layout: post
 title: "{title}"
 date: {date}
+excerpt: "{excerpt}"
 categories: [技術]
 tags: [{tags}]
 image: /assets/images/featured/{image_filename}
 ---
-
 {intro}
 
 ## {section1_title}
@@ -45,20 +58,25 @@ image: /assets/images/featured/{image_filename}
 {conclusion}
 
 ---
+
 *你對這個主題有什麼看法？歡迎在下方留言分享！*
+
+**延伸閱讀：**
+{related_links}
 """,
-        "prompt_style": "modern technology digital art, clean minimalist design, blue color scheme, futuristic, professional, high quality, 16:9 aspect ratio"
+        "prompt_style": "modern technology digital art, clean minimalist design, blue color scheme, futuristic, professional, high quality, 16:9 aspect ratio",
+        "keywords": ["程式設計", "Python", "自動化", "教學", "技術"]
     },
     "生活": {
         "template": """---
 layout: post
 title: "{title}"
 date: {date}
+excerpt: "{excerpt}"
 categories: [生活]
 tags: [{tags}]
 image: /assets/images/featured/{image_filename}
 ---
-
 {intro}
 
 ## {section1_title}
@@ -78,20 +96,25 @@ image: /assets/images/featured/{image_filename}
 {conclusion}
 
 ---
+
 *你有什麼心得或建議嗎？歡迎在下方留言分享！*
+
+**延伸閱讀：**
+{related_links}
 """,
-        "prompt_style": "warm lifestyle photography, bright natural lighting, cozy atmosphere, soft colors, inspiring, photorealistic, 16:9 aspect ratio"
+        "prompt_style": "warm lifestyle photography, bright natural lighting, cozy atmosphere, soft colors, inspiring, photorealistic, 16:9 aspect ratio",
+        "keywords": ["生活技巧", "時間管理", "習慣養成", "心得分享"]
     },
     "健康": {
         "template": """---
 layout: post
 title: "{title}"
 date: {date}
+excerpt: "{excerpt}"
 categories: [健康]
 tags: [{tags}]
 image: /assets/images/featured/{image_filename}
 ---
-
 {intro}
 
 ### 1. {habit1}
@@ -121,14 +144,21 @@ image: /assets/images/featured/{image_filename}
 {conclusion}
 
 > 「{quote}」
+
+---
+
+*你開始實踐這些習慣了嗎？歡迎在下方留言分享你的經驗！*
+
+**延伸閱讀：**
+{related_links}
 """,
-        "prompt_style": "fresh wellness photography, natural green tones, healthy lifestyle, peaceful, clean design, photorealistic, 16:9 aspect ratio"
+        "prompt_style": "fresh wellness photography, natural green tones, healthy lifestyle, peaceful, clean design, photorealistic, 16:9 aspect ratio",
+        "keywords": ["健康生活", "運動習慣", "飲食健康", "養生"]
     }
 }
 
 def generate_article_prompt(category: str, topic_hints: list = None) -> dict:
     """生成文章內容提示（給 LLM 用）"""
-    
     topic_suggestions = {
         "技術": [
             "Python 程式設計入門指南",
@@ -156,15 +186,20 @@ def generate_article_prompt(category: str, topic_hints: list = None) -> dict:
     return {
         "category": category,
         "suggested_topics": topic_suggestions.get(category, []),
-        "requirements": {
-            "intro_min_length": 60,  # 前言至少 60 字
+        "seo_requirements": {
+            "excerpt_min_length": 120,
+            "excerpt_max_length": 160,
+            "intro_min_length": 80,
             "sections": 3,
             "total_length": 800,
-            "tone": "friendly and informative"
+            "tone": "friendly and informative",
+            "include_keywords": ARTICLE_TEMPLATES.get(category, {}).get("keywords", [])
         }
     }
 
-def generate_image_pollinations(prompt: str, output_path: str, width: int = 1280, height: int = 720) -> bool:
+
+def generate_image_pollinations(prompt: str, output_path: str, 
+                                width: int = 1280, height: int = 720) -> bool:
     """使用 Pollinations API 生成圖片"""
     import urllib.parse
     import urllib.request
@@ -190,7 +225,6 @@ def generate_image_pollinations(prompt: str, output_path: str, width: int = 1280
                 return False
             
             os.makedirs(os.path.dirname(output_path), exist_ok=True)
-            
             with open(output_path, 'wb') as f:
                 f.write(image_data)
             
@@ -202,6 +236,7 @@ def generate_image_pollinations(prompt: str, output_path: str, width: int = 1280
         print(f"❌ 生成失敗: {e}")
         return False
 
+
 def create_article_file(title: str, category: str, content: str, posts_dir: str) -> str:
     """建立文章檔案"""
     import re
@@ -211,6 +246,7 @@ def create_article_file(title: str, category: str, content: str, posts_dir: str)
     safe_title = re.sub(r'[^\w\s-]', '', title)
     safe_title = re.sub(r'[\s]+', '-', safe_title)
     filename = f"{date_str}-{safe_title}.md"
+    
     filepath = os.path.join(posts_dir, filename)
     
     # 確保目錄存在
@@ -223,24 +259,102 @@ def create_article_file(title: str, category: str, content: str, posts_dir: str)
     print(f"✅ 文章已建立: {filepath}")
     return filename
 
+
+def generate_meta_description(content: str, max_length: int = 160) -> str:
+    """生成 meta description（SEO 用）"""
+    import re
+    
+    # 移除標題和 markdown 標記
+    text = re.sub(r'^#+\s+', '', content, flags=re.MULTILINE)
+    text = re.sub(r'\[([^\]]+)\]\([^)]+\)', r'\1', text)
+    text = re.sub(r'[*_`#]', '', text)
+    text = text.replace('\n', ' ').strip()
+    
+    # 截斷到合適長度
+    if len(text) <= max_length:
+        return text
+    
+    # 找最後一個完整句子
+    truncated = text[:max_length]
+    last_period = max(
+        truncated.rfind('。'),
+        truncated.rfind('！'),
+        truncated.rfind('？'),
+        truncated.rfind('.')
+    )
+    
+    if last_period > max_length * 0.5:
+        return truncated[:last_period + 1]
+    
+    # 找最後一個完整詞
+    last_space = truncated.rfind(' ')
+    if last_space > max_length * 0.5:
+        return truncated[:last_space] + '...'
+    
+    return truncated + '...'
+
+
+def generate_related_links(category: str, current_title: str, all_articles: list) -> str:
+    """生成相關文章連結（內部連結優化）"""
+    links = []
+    
+    for article in all_articles:
+        if article.get('title') == current_title:
+            continue
+        if article.get('categories', [])[0] == category:
+            # 同分類文章優先
+            links.insert(0, f"- [{article['title']}]({{{{ site.baseurl }}}}{article['url']})")
+        elif len(links) < 3:
+            links.append(f"- [{article['title']}]({{{{ site.baseurl }}}}{article['url']})")
+    
+    return '\n'.join(links[:3]) if links else "- [更多文章]({{ site.baseurl }}/)"
+
+
+def run_seo_analysis(posts_dir: str, output_dir: str) -> dict:
+    """執行 SEO 分析"""
+    print("\n" + "=" * 60)
+    print("📊 SEO 分析")
+    print("=" * 60)
+    
+    optimizer = SEOOptimizer(posts_dir)
+    results = optimizer.optimize_all_articles()
+    
+    # 儲存結果
+    json_path = os.path.join(output_dir, "seo_analysis.json")
+    with open(json_path, 'w', encoding='utf-8') as f:
+        json.dump(results, f, ensure_ascii=False, indent=2)
+    print(f"\n✅ SEO 分析結果: {json_path}")
+    
+    # 生成報告
+    report_path = os.path.join(output_dir, "seo_report.txt")
+    optimizer.generate_report(results, report_path)
+    
+    return {
+        "results": results,
+        "avg_score": sum(r['seo_score'] for r in results) / len(results) if results else 0,
+        "total_words": sum(r['word_count'] for r in results)
+    }
+
+
 def main():
     """主程式"""
     print("=" * 60)
-    print("📝 內容生產管線")
+    print("📝 內容生產管線 + SEO 優化")
     print("=" * 60)
     
     # 設定路徑
     repo_dir = Path(__file__).parent.parent
     posts_dir = repo_dir / "_posts"
     images_dir = repo_dir / "assets" / "images" / "featured"
+    scripts_dir = repo_dir / "scripts"
     
     print(f"\n📂 Repository: {repo_dir}")
     print(f"📂 Posts: {posts_dir}")
     print(f"📂 Images: {images_dir}")
     
-    # 步驟 1: 生成文章提示
+    # 步驟 1: 生成文章提示（含 SEO 要求）
     print("\n" + "=" * 60)
-    print("步驟 1: 準備文章生成提示")
+    print("步驟 1: 準備文章生成提示（含 SEO 優化要求）")
     print("=" * 60)
     
     articles_to_create = [
@@ -253,6 +367,8 @@ def main():
         prompt_info = generate_article_prompt(article["category"])
         print(f"\n📌 {article['title']} ({article['category']})")
         print(f"   建議主題: {', '.join(prompt_info['suggested_topics'][:3])}")
+        print(f"   SEO 關鍵字: {', '.join(prompt_info['seo_requirements']['include_keywords'][:3])}")
+        print(f"   字數要求: {prompt_info['seo_requirements']['total_length']}+ 字")
     
     # 步驟 2: 生成 AI 圖片
     print("\n" + "=" * 60)
@@ -287,37 +403,57 @@ def main():
             print("⏳ 等待 3 秒...")
             time.sleep(3)
     
-    # 步驟 3: 輸出文章模板
+    # 步驟 3: SEO 分析現有文章
     print("\n" + "=" * 60)
-    print("步驟 3: 文章模板已準備")
+    print("步驟 3: SEO 分析現有文章")
     print("=" * 60)
     
-    for article in generated_images:
-        print(f"\n📝 {article['title']}")
-        if article['image_filename']:
-            print(f"   🖼️ 圖片: {article['image_filename']}")
-        else:
-            print(f"   ⚠️ 圖片生成失敗")
+    seo_results = run_seo_analysis(str(posts_dir), str(scripts_dir))
     
+    print(f"\n📈 SEO 總覽:")
+    print(f"   平均分數: {seo_results['avg_score']:.1f}/100")
+    print(f"   總字數: {seo_results['total_words']:,}")
+    
+    # 步驟 4: 輸出管線狀態
     print("\n" + "=" * 60)
-    print("📋 下一步：使用 LLM 填充文章內容")
+    print("步驟 4: 輸出管線狀態")
     print("=" * 60)
     
-    # 輸出 JSON 供 sub-agent 使用
     pipeline_state = {
         "timestamp": datetime.now().isoformat(),
         "articles": articles_to_create,
         "images": generated_images,
+        "seo_summary": {
+            "avg_score": seo_results['avg_score'],
+            "total_words": seo_results['total_words'],
+            "article_count": len(seo_results['results'])
+        },
         "next_step": "fill_content"
     }
     
-    state_file = repo_dir / "scripts" / "pipeline_state.json"
+    state_file = scripts_dir / "pipeline_state.json"
     with open(state_file, 'w', encoding='utf-8') as f:
         json.dump(pipeline_state, f, ensure_ascii=False, indent=2)
     
     print(f"\n✅ 管線狀態已儲存: {state_file}")
     
+    # 輸出 SEO 改善建議
+    print("\n" + "=" * 60)
+    print("📋 SEO 改善建議")
+    print("=" * 60)
+    
+    for result in seo_results['results']:
+        if result['seo_score'] < 70:
+            print(f"\n⚠️ {result['title']} ({result['seo_score']}/100)")
+            for suggestion in result['suggestions']:
+                print(f"   {suggestion}")
+    
+    print("\n" + "=" * 60)
+    print("✅ 管線執行完成")
+    print("=" * 60)
+    
     return True
+
 
 if __name__ == "__main__":
     success = main()
