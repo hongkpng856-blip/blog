@@ -4,8 +4,8 @@ layout: default
 
 <div class="container">
  <!-- 置頂文章：最新發布的文章 -->
- {% assign featured_post = site.posts.first %}
- {% assign other_posts = site.posts | where_exp: "post", "post.url != featured_post.url" %}
+ {% assign featured_post = site.posts | sort: "date" | reverse | first %}
+ {% assign other_posts = site.posts | sort: "date" | reverse | where_exp: "post", "post.url != featured_post.url" %}
  <div class="row mb-4">
  <div class="col-12">
  <div class="card featured-post shadow">
