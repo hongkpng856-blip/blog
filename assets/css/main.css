@@ -165,13 +165,15 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
+  min-width: 32px;
+  width: 32px;
+  height: 32px;
   background-color: var(--primary-color);
   color: white;
   font-weight: bold;
   border-radius: 50%;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
+  line-height: 1;
 }
 
 /* Badge 樣式 */
