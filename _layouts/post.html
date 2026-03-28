@@ -174,7 +174,7 @@ layout: default
         </div>
         <div class="card-body">
           <ul class="list-group list-group-flush">
-            {% for post in site.posts limit:5 %}
+            {% for post in site.posts limit:4 %}
             <li class="list-group-item border-0 px-0">
               <a href="{{ post.url | relative_url }}" class="text-decoration-none d-flex align-items-center">
                 <div class="popular-count me-3">{{ forloop.index }}</div>

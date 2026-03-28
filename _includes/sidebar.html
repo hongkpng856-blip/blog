@@ -41,7 +41,7 @@
  <div class="card-header">最新文章</div>
  <div class="card-body">
  <ul class="list-unstyled mb-0">
- {% for post in site.posts limit:5 %}
+ {% for post in site.posts limit:4 %}
  <li class="mb-2">
  <a href="{{ post.url | relative_url }}" class="text-decoration-none">{{ post.title }}</a>
  </li>
