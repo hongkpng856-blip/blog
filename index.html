@@ -45,7 +45,7 @@ layout: default
  <div class="col-lg-8">
  {% assign sorted_posts = paginator.posts | sort: "date" | reverse %}
  {% for post in sorted_posts %}
- {% if forloop.first %}{% continue %}{% endif %}
+ 
 
  {% if forloop.index == 3 %}
  <!-- 文章中間的廣告 -->
