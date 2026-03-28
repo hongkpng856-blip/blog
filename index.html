@@ -43,7 +43,7 @@ layout: default
  <div class="row">
  <!-- 主文章列表：按日期倒序，最新→最舊 -->
  <div class="col-lg-8">
- {% assign sorted_posts = paginator.posts | sort: "date" | reverse | limit: 4 %}
+ {% assign sorted_posts = site.posts | limit: 6 %}
  {% for post in sorted_posts %}
  {% if forloop.first %}{% continue %}{% endif %}
 
