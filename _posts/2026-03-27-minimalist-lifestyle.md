@@ -1,6 +1,6 @@
 ---
 title: "極簡主義生活：如何用更少擁有更多"
-date: 2026-03-27
+date: 2026-03-27 18:01:00 +0800
 categories: [生活, 自我成長]
 tags: [極簡主義, 生活哲學, 斷捨離]
 image: "/assets/images/featured/極簡主義生活-如何用更少擁有更多.jpg"

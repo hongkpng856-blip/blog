@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "AI 自動化如何改變未來工作模式"
-date: 2026-03-26
+date: 2026-03-26 10:00:00 +0800
 categories: [技術]
 tags: [AI, 自動化, 未來工作, 效率]
 image: /assets/images/featured/ai-自動化如何改變未來工作模式.jpg
