@@ -43,9 +43,10 @@ layout: default
  <div class="row">
  <!-- 主文章列表：按日期倒序，最新→最舊 -->
  <div class="col-lg-8">
- {% assign sorted_posts = site.posts | limit: 6 %}
+ {% assign sorted_posts = site.posts | sort: "date" | reverse %}
  {% for post in sorted_posts %}
- {% if forloop.first %}{% continue %}{% endif %}
+ {% assign excluded_url = featured_post.url %}
+{% if post.url == excluded_url %}{% continue %}{% endif %}
 
  {% if forloop.index == 3 %}
  <!-- 文章中間的廣告 -->
