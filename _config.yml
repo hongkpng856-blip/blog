@@ -28,7 +28,7 @@ plugins:
 timezone: Asia/Taipei
 
 # 分頁設定
-paginate: 4
+paginate: 5
 paginate_path: "/page:num/"
 
 # 排除檔案
