@@ -210,3 +210,51 @@ The goal: Be helpful without being annoying. Check in a few times a day, do usef
 ## Make It Yours
 
 This is a starting point. Add your own conventions, style, and rules as you figure out what works.
+
+---
+
+## 🤖 自動化文章生成流程
+
+完整自動化流程：
+```
+使用者指令 
+  ↓
+Article Writer（撰寫文章） 
+  ↓
+Image Creator（生成封面圖） 
+  ↓
+推送到 GitHub 
+  ↓
+Site Debugger（最後檢測）← 確認文章與圖片都正確上傳
+  ↓
+完成通知
+```
+
+### 🔧 Agent 職責
+
+| Agent | 職責 | 狀態 |
+|-------|------|------|
+| Article Writer | 根據主題撰寫文章，輸出 Markdown | 🔄 建立中 |
+| Image Creator | 為文章生成封面圖 | 🔄 建立中 |
+| Site Debugger | 流程最後防線，確認文章和圖片正確上傳後才回報完成 | 🔄 建立中 |
+
+### 📁 現有資源
+
+| 資源 | 位置 | 用途 |
+|------|------|------|
+| 部落格文章 | `blog-repo/_posts/` | 57篇現存文章 |
+| 文章生成 | `blog-repo/scripts/smart_article_generator.py` | 可改造為 Article Writer |
+| 圖片生成 | `blog-repo/scripts/regenerate_all_images.py` | 可改造為 Image Creator |
+| 內容流水線 | `blog-repo/scripts/content_pipeline.py` | 整合流程 |
+
+### 🎯 調用方式
+
+```
+使用者下達主題 → 主 Agent 調用 Article Writer → 調用 Image Creator → 自動 GitHub push → Debugger 驗證 → 回報完成
+```
+
+---
+
+## Make It Yours
+
+This is a starting point. Add your own conventions, style, and rules as you figure out what works.
