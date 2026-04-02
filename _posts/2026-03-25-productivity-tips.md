@@ -1,4 +1,5 @@
 ---
+featured-image: /blog/images/default-cover.jpg
 layout: post
 title: "提升工作效率的五個實用技巧"
 date: 2026-03-25 10:00:00 +0800

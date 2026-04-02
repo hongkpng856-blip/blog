@@ -1,4 +1,5 @@
 ---
+featured-image: /blog/images/default-cover.jpg
 title: "Python 自動化入門：用程式碼簡化你的生活"
 date: 2026-03-27 18:02:00 +0800
 categories: [技術, 程式設計]

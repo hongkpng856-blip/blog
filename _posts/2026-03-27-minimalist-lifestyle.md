@@ -1,4 +1,5 @@
 ---
+featured-image: /blog/images/default-cover.jpg
 title: "極簡主義生活：如何用更少擁有更多"
 date: 2026-03-27 18:01:00 +0800
 categories: [生活, 自我成長]

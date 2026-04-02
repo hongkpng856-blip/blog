@@ -1,4 +1,5 @@
 ---
+featured-image: /blog/images/default-cover.jpg
 layout: post
 title: "建立健康生活的五個簡單習慣"
 date: 2026-03-26 11:00:00 +0800

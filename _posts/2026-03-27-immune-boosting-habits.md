@@ -1,4 +1,5 @@
 ---
+featured-image: /blog/images/default-cover.jpg
 title: "提升免疫力的五個日常習慣"
 date: 2026-03-27 10:00:00 +0800
 categories: [健康, 生活]

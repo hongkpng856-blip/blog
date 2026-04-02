@@ -1,4 +1,5 @@
 ---
+featured-image: /blog/images/default-cover.jpg
 layout: post
 title: "AI 自動化如何改變未來工作模式"
 date: 2026-03-26 10:00:00 +0800
