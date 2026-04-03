@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-03-27T17:45:56.706801",
+  "timestamp": "2026-04-03T14:30:18.060769",
   "articles": [
     {
       "category": "技術",
@@ -35,9 +35,9 @@
     }
   ],
   "seo_summary": {
-    "avg_score": 63.57142857142857,
-    "total_words": 6889,
-    "article_count": 7
+    "avg_score": 49.509803921568626,
+    "total_words": 36822,
+    "article_count": 51
   },
   "next_step": "fill_content"
 }
