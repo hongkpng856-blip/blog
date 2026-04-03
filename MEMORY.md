@@ -55,6 +55,7 @@
 - 更新文章 Front‑Matter `image: /assets/images/featured/女性理財規劃.png`。
 - 於 GitHub 推送更新，GitHub Pages 仍在建置中，稍後可確認圖片正確顯示。
 - ✅ 已驗證遠端圖片與文章，網址：https://hongkpng856-blip.github.io/blog/2026/04/03/%E5%A5%B3%E6%80%A7%E7%90%86%E8%B2%A1%E8%A6%8F%E5%8A%83/，圖片：https://hongkpng856-blip.github.io/blog/assets/images/featured/%E5%A5%B3%E6%80%A7%E7%90%86%E8%B2%A1%E8%A6%8F%E5%8A%83.png
+- ✅ 已完成 51 篇文章的封面圖生成與驗證，所有圖片均已上傳至 GitHub Pages 並回 200。
 
 ---
 
