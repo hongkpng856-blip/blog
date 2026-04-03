@@ -2720,9 +2720,15 @@
     "file": "2026-04-03-女性理財規劃.md",
     "title": "女性理財規劃",
     "categories": "投資",
-    "tags": [],
+    "tags": [
+      "女性",
+      "理財",
+      "投資"
+    ],
     "heading_structure": {
-      "h1": [],
+      "h1": [
+        "女性理財規劃"
+      ],
       "h2": [
         "為什麼理財很重要？",
         "基本概念與原則",
@@ -2742,35 +2748,41 @@
         "分散投資",
         "持續學習",
         "避免跟風",
-        "設定停損"
+        "設定停損",
+        "相關文章"
       ],
       "h4": []
     },
     "keywords": [
       "\n\n",
       " \n",
-      " \n\n",
       "投資",
+      " \n\n",
       "理財",
+      "  ",
+      "開始",
       "風險",
       "規劃",
-      "開始",
-      "理財規",
-      "財規"
+      " 2"
     ],
-    "word_count": 910,
+    "word_count": 1048,
     "internal_links": {
-      "internal_count": 0,
+      "internal_count": 2,
       "external_count": 0,
-      "internal_links": [],
+      "internal_links": [
+        {
+          "text": "新手理財入門：從零開始的理財觀念",
+          "url": "/2026-03-28-新手理財入門：從零開始的理財觀念.md"
+        },
+        {
+          "text": "高股息 ETF 投資攻略：2026 懶人理財術",
+          "url": "/2026-03-31-高股息%20ETF%20投資攻略：2026%20懶人理財術.md"
+        }
+      ],
       "external_links": []
     },
     "has_meta_description": true,
-    "suggestions": [
-      "❌ 缺少 H1 標題（文章標題應為 H1）",
-      "⚠️ 內部連結太少（建議至少 2-3 個）",
-      "❌ 缺少 tags（建議加入 3-5 個相關標籤）"
-    ],
-    "seo_score": 55
+    "suggestions": [],
+    "seo_score": 100
   }
 ]
